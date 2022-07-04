@@ -9,8 +9,8 @@ class Suitcase{
     char* name;
     char* adress;
     int phoneNumber;
-    int size = 0;
-    int capacity = 20;
+    int size;
+    int capacity;
     Clothes** clothes;
     void copy(const Suitcase&);
     void free();
@@ -22,9 +22,8 @@ class Suitcase{
     Suitcase(const Suitcase&);
     Suitcase& operator=(const Suitcase&);
     ~Suitcase();
-    void addClothes(const Clothes& other);
+    void addClothes(const Clothes* other);
     void removeClothes(const Clothes* other);
-    Clothes* clone() const;
     void print();
     friend std::ostream& operator<<(std::ostream&,const Suitcase& );
     char* getColor() const;

@@ -4,7 +4,7 @@
 
 int main(){
     Suitcase suitcase;
-    Dress dress("cherven", "golqm", 10, 10);
+    Clothes* dress = new Dress("cherven", "golqm", 10, 10);
     suitcase.addClothes(dress);
     std::cout << suitcase;
 }

@@ -1,23 +1,18 @@
 #include "suitcase.h"
 
 Suitcase::Suitcase(){
-    try{
-        this->clothes = new Clothes*[capacity]; 
-    }
-    catch(std::exception& error){
-        for(int i = 0; i < capacity; i++){
-            delete clothes[i];
-        }
-        delete[] clothes;
-        throw error;
-    }
-
+    this->size = 0;
+    this->capacity = 20;
+    this->clothes = new Clothes*[capacity]; 
     this->name = nullptr;
     this->adress = nullptr;
     this->color = nullptr;
     this->phoneNumber = 0;
 }
 Suitcase::Suitcase(const char* name, const char* adress, const char* color, int phoneNumber){
+    this->size = 0;
+    this->capacity=  20;
+    ////
     strcpy(this->name, name);
     strcpy(this->adress, adress);
     strcpy(this->color, color);
@@ -96,9 +91,9 @@ bool Suitcase::isFull(){
     return false;
 }
 
-void Suitcase::addClothes(const Clothes& other){
+void Suitcase::addClothes(const Clothes* other){
     if(!isFull()){
-        clothes[size] = other.clone();
+        clothes[size] = other->clone();
         std::cout << clothes[size++] << " added successfully";
     }
     else{
