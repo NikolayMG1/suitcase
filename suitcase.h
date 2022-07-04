@@ -22,6 +22,15 @@ class Suitcase{
     Suitcase(const Suitcase&);
     Suitcase& operator=(const Suitcase&);
     ~Suitcase();
-    void addClothes(const Clothes&);
-    void removeClothes(const Clothes&);
+    void addClothes(const Clothes& other);
+    void removeClothes(const Clothes* other);
+    Clothes* clone() const;
+    void print();
+    friend std::ostream& operator<<(std::ostream&,const Suitcase& );
+    char* getColor() const;
+    char* getName() const;
+    char* getAdress() const;
+    int getPhoneNumber() const;
+    int getSize() const;
+
 };

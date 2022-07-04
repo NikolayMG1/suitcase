@@ -32,6 +32,7 @@ std::ostream& operator<<(std::ostream& out, const Clothes& other){
     out << "Color: " << other.color << '\n';
     out << "Price: " << other.price << '\n';
     out << "sizeOfClothes: " << other.sizeOfClothes << '\n';
+    return out;
 }
 
 bool Clothes::operator==(const Clothes& other){
@@ -42,4 +43,24 @@ bool Clothes::operator==(const Clothes& other){
             }
         }  
     }
+    return false;
+}
+Clothes::Clothes(const char* color,const char* sizeOfClothes,const double price){
+    try{
+        this->color = new char[strlen(color)+1];
+    }
+    catch(std::exception& error){
+        delete[] color;
+        throw error;
+    }
+    strcpy(this->color, color);
+    try{
+        this->sizeOfClothes = new char[strlen(sizeOfClothes)+1];
+    }
+    catch(std::exception& error){
+        delete[] sizeOfClothes;
+        throw error;
+    }
+    strcpy(this->sizeOfClothes, sizeOfClothes);
+    this->price = price;
 }

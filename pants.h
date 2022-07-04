@@ -6,5 +6,9 @@ class Pants: public Clothes{
     double length;
     public:
     Pants();
+    Pants(const Pants&);
+    Pants operator=(const Pants&);
+    ~Pants();
     friend std::ostream& operator<<(std::ostream&, const Pants&);
+    virtual Clothes* clone() const;
 };
